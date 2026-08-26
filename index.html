@@ -127,13 +127,13 @@
 
         function submitForm(event) {
             event.preventDefault();
-            formData.name = document.getElementById('userName'].value;
+            formData.name = document.getElementById('userName').value;
             formData.phone = document.getElementById('userPhone').value;
 
-            // Meta Pixel Lead eventini yuborish (Reklama optimizatsiyasi uchun)
-            fbq('track', 'Lead');
-
-            // Ma'lumotlarni saqlash yoki yuborish logikasi shu yerda bo'ladi
+            // Meta Pixel Lead eventini yuborish
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
 
             // Alohida Thank You sahifasiga o'tish
             window.location.href = 'thankyou.html';
