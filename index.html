@@ -6,6 +6,24 @@
     <title>Win win finance - Ishlab chiqaruvchilar uchun buxgalteriya</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1374512530778863');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1374512530778863&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between">
 
@@ -25,7 +43,7 @@
             
             <!-- STEP 1: Aylanma -->
             <div class="step" id="step1">
-                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">1-savol / 4</span>
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">1-savol / 2</span>
                 <h2 class="text-xl font-bold mt-2 mb-6">Yillik aylanmangiz qancha?</h2>
                 <div class="space-y-3">
                     <button onclick="nextStep(1, '1 mlrddan ko\'p')" class="w-full text-left p-4 rounded-xl bg-slate-700/50 hover:bg-emerald-600/20 border border-slate-600 hover:border-emerald-500 transition font-medium">1 mlrddan ko'p</button>
@@ -37,7 +55,7 @@
 
             <!-- STEP 2: Tadbirkormisiz -->
             <div class="step hidden" id="step2">
-                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">2-savol / 4</span>
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">2-savol / 2</span>
                 <h2 class="text-xl font-bold mt-2 mb-6">Siz ishlab chiqaruvchi tadbirkormisiz?</h2>
                 <div class="space-y-3">
                     <button onclick="checkEntrepreneur(true)" class="w-full text-left p-4 rounded-xl bg-slate-700/50 hover:bg-emerald-600/20 border border-slate-600 hover:border-emerald-500 transition font-medium">Ha, tadbirkorman</button>
@@ -52,7 +70,7 @@
                 <p class="text-sm text-slate-400">Ushbu kurs va xizmatimiz bevosita ishlab chiqarish korxonalari rahbarlari va egalariga mo'ljallangan.</p>
             </div>
 
-            <!-- STEP 3 & 4: Ism va Telefon (Kontakt formasi) -->
+            <!-- STEP 3: Ism va Telefon (Kontakt formasi) -->
             <div class="step hidden" id="stepContact">
                 <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Oxirgi qadam</span>
                 <h2 class="text-xl font-bold mt-2 mb-2">Ma'lumotlaringizni qoldiring</h2>
@@ -69,14 +87,6 @@
                     </div>
                     <button type="submit" class="w-full bg-emerald-500 text-slate-950 py-3.5 rounded-xl font-bold hover:bg-emerald-400 transition shadow-lg shadow-emerald-500/20">Joyni band qilish</button>
                 </form>
-            </div>
-
-            <!-- THANK YOU SCREEN (Alohida dizayn) -->
-            <div class="step hidden text-center py-6" id="stepThankYou">
-                <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✓</div>
-                <h2 class="text-2xl font-extrabold mb-2 text-white">Rahmat!</h2>
-                <p class="text-sm text-slate-300 mb-6">Arizangiz muvaffaqiyatli qabul qilindi. Tez orada menejerimiz siz bilan bog'lanib, barcha tafsilotlarni ma'lum qiladi.</p>
-                <a href="https://www.instagram.com/winwinfinance_uz/" target="_blank" class="inline-block bg-slate-700 text-white px-6 py-2.5 rounded-xl text-sm font-semibold hover:bg-slate-600 transition">Instagramga qaytish</a>
             </div>
 
         </div>
@@ -117,15 +127,16 @@
 
         function submitForm(event) {
             event.preventDefault();
-            formData.name = document.getElementById('userName').value;
+            formData.name = document.getElementById('userName'].value;
             formData.phone = document.getElementById('userPhone').value;
 
-            // Bu yerda ma'lumotlarni Telegram botga yuborish uchun fetch kodini yozishingiz mumkin
-            console.log("Yuborilgan ma'lumotlar:", formData);
+            // Meta Pixel Lead eventini yuborish (Reklama optimizatsiyasi uchun)
+            fbq('track', 'Lead');
 
-            // Thank you sahifasiga o'tish
-            document.getElementById('stepContact').classList.add('hidden');
-            document.getElementById('stepThankYou').classList.remove('hidden');
+            // Ma'lumotlarni saqlash yoki yuborish logikasi shu yerda bo'ladi
+
+            // Alohida Thank You sahifasiga o'tish
+            window.location.href = 'thankyou.html';
         }
     </script>
 </body>
